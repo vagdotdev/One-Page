@@ -22,7 +22,7 @@ const DEPTH_RUNGS: DepthRung[] = [
     kind: "eli5",
     depthLabel: "What it is",
     phase:
-      "Plain definition + input → output; one worked example through the pipeline. No application tour; zero jargon.",
+      "Explain-like-I'm-ten: one vivid analogy, plain definition, input → output; walk one example through the pipeline. Beautiful and clear, not corny; zero jargon.",
   },
   {
     endIndex: 10,
