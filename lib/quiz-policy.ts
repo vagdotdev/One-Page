@@ -11,7 +11,7 @@ export function quizPolicyHint(layerIndex: number): string | null {
   if (!earlyLayerQuizOptional(layerIndex)) return null;
   return [
     "Quiz judgment (first pages only):",
-    "- Questions must test the pipeline (input, step, output) — not \"which field uses X\" or brochure trivia.",
+    "- Questions must test understanding — not \"which field uses X\" or trivia.",
     "- If you taught a concrete step, include 2 MCQ; skip only when a check would be pointless.",
     "- Default to a short quiz when unsure.",
   ].join("\n");

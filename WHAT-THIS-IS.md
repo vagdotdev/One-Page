@@ -17,7 +17,7 @@ But when you actually look at the idea without the noise, it is often much simpl
 
 1. **Start with the simplest true version** — explain it so anyone can get the shape of it in one calm read.
 2. **Add complexity only after you have shown you understand** — each step is a little more precise, a little more complete, never a wall of new jargon dumped at once.
-3. **Stay on the same topic the whole time** — you are not jumping to a new lesson or a new URL. You are reading **the same subject again and again**, but each pass is the **same story with deeper detail**. That repetition is not redundancy; it is how understanding actually sticks. You recognize what you already learned; you refine it; you connect new pieces to old ones.
+3. **Stay on the same topic the whole time** — you are not jumping to a new lesson or a new URL. Understanding climbs in a **spiral**: most layers add **one new slice** of the story (a step, a part, a scene) so it never feels like reading the same paragraph twice. **Every few layers**, the page steps back and gives a **top-down pass again** — the **whole topic** at your current level, start to finish, so the repetition that matters is *seeing the full map* after new terrain was added, not continuous copy-paste of the last page.
 4. **Quiz yourself before you go deeper** — being asked questions is one of the strongest forms of retention. Reading feels productive; answering forces you to know. The quiz is not a gimmick — it is the gate that earns the next layer.
 
 I believe this is a **really good way to learn**: simplify first, deepen with intention, repeat the whole topic at rising fidelity, and prove it with questions along the way. Not more content for its own sake — **better understanding, in smaller steps, on one beautiful page**.
@@ -43,9 +43,9 @@ This is not a dashboard, not a learning platform with menus, and not a gamified 
 | **One URL, one topic** | Radical focus. The constraint is the product. |
 | **Start simple, then deepen** | Topics feel huge until you see the core; build from that spine outward. |
 | **Top-down disclosure** | Start ELI5; add precision, mechanism, math, and edge cases only when earned. |
-| **Learning through repetition** | Each layer covers **the same topic again**, with more detail — not a new article, but a richer version of what you already read. |
+| **Top-down spiral** | Most layers add **new** detail on the same topic. Every few layers, a **full top-down recap** — whole subject at your current level — not re-reading the last page verbatim. |
 | **Active recall** | Quizzes gate depth. Being asked questions is how retention actually happens. |
-| **The page evolves** | New layers **refine** prior text — they do not feel like a pile of separate lessons. |
+| **The page evolves** | New layers **extend** the story; recap beats **reframe** the whole picture. |
 | **Taste over features** | Generous whitespace, serif-led typography, restrained motion, direct writing. |
 | **Respect attention** | No clutter, no dark patterns, no noise. |
 
@@ -101,13 +101,13 @@ Content quality is non-negotiable. Generic AI prose will break the magic. Plan f
 
 When a layer unlocks, the page does not hard-cut to a new article. The text **evolves**:
 
-- Prior ideas remain recognizable but become **more accurate and defined**
-- You encounter **the same topic again** — fuel, thrust, orbit — but now with the next level of truth attached
-- New sections may appear; vague phrases become specific; analogies tighten into mechanisms
+- Most beats add **something you have not seen yet** on this page — not the same summary wearing different clothes
+- Every **few layers**, the page pulls back: **the whole topic again**, top-down, at the fidelity you have earned so far
+- Between those recaps, prior ideas stay connected but the prose moves **forward** — sharper terms, the next mechanism, the next scene
 - Animation: smooth fade, staggered paragraph reveal, or controlled morph — **fast enough to feel responsive, slow enough to feel intentional**
 - Diagrams / simple visuals (later): inline, elegant, not clipart
 
-The metaphor: **the document is maturing with the learner** — and each pass is deliberate **repetition with depth**, not starting over from scratch.
+The metaphor: **the document is maturing with the learner** — zooming in on new ground, then occasionally **unfolding the full map** again so nothing feels like déjà vu on every scroll.
 
 ---
 
@@ -145,14 +145,14 @@ The metaphor: **the document is maturing with the learner** — and each pass is
 
 ### 5. Progressive layers (2 → N)
 
-Each unlock deepens the **same narrative thread** — the full topic again, with more detail:
+Each unlock deepens the **same narrative thread**. **Most layers** add the next slice only. **Every few layers** (roughly every four), one beat is a deliberate **top-down recap** — the entire topic at your current level in one pass, so repetition means *seeing the whole picture again*, not copying the previous screen.
 
 | Typical progression | What gets added |
 |---------------------|-----------------|
-| Layer 2 | Mechanisms, parts, “how it actually works” |
-| Layer 3 | Types, examples, history, real-world instances |
-| Layer 4 | Quantitative framing, equations with plain-language meaning |
-| Layer 5+ | Edge cases, limits, open questions, current research |
+| Layer 1–2 | Simplest true version, then the next step or part |
+| Layer 3–4 | Often includes a **top-down recap** beat after new slices land |
+| Mid climb | More mechanism, context, or numbers — **new** ground each time; recap beats re-stitch the full map |
+| Synthesis / late | Integrated mental model, then expert depth |
 
 **Rockets example**
 
@@ -201,7 +201,7 @@ Each unlock deepens the **same narrative thread** — the full topic again, with
 |---------|-------------|
 | **Single-page learning** | One topic, one surface, no navigation tree |
 | **Progressive layers** | ELI5 → depth → expert; same page refines |
-| **Repetition with depth** | Same topic revisited each layer with more detail — spaced understanding, not new silos |
+| **Spiral + top-down recaps** | New detail most layers; every ~4 layers a full-topic pass at current depth — not the same paragraph repeated |
 | **Text evolution animation** | Premium in-place transitions (Framer Motion / GSAP-class) |
 | **Quiz gating** | Active recall unlocks next layer; questions drive retention |
 | **Engagement signals** | v1: time, scroll, button, quiz; later: camera / gaze |
@@ -220,7 +220,7 @@ Each unlock deepens the **same narrative thread** — the full topic again, with
 4. **Motion serves comprehension** — guides the eye when text deepens; never distracts.
 5. **No gamification cosplay** — no XP explosions, no casino UI; progress can be elegant and quiet.
 6. **Coherent narrative across layers** — each layer is a **refinement**, not a replacement dump.
-7. **Repetition is pedagogy** — return to the whole topic at higher fidelity every layer.
+7. **Repetition is top-down, not copy-paste** — return to the **whole topic** every few layers; between recaps, only **new** slices.
 8. **Quiz quality = retention** — pretty text without good questions creates illusion of learning.
 
 ---
@@ -245,7 +245,8 @@ Each unlock deepens the **same narrative thread** — the full topic again, with
 | Broken animations | Prototype transitions early; prefer fade/stagger over chaotic morph |
 | Illusion of learning | Serious quizzes + final synthesis exercise |
 | Platform creep | Resist sidebars, feeds, and social before core loop is perfect |
-| Layers that feel unrelated | Enforce “same topic, more detail” in prompts and edits |
+| Layers that feel unrelated | Enforce one-topic spiral + periodic top-down recaps in prompts |
+| Layers that feel repetitive | Ordinary beats must add new material; ban re-summarizing the prior layer |
 
 ---
 
@@ -334,7 +335,7 @@ One-paragraph mental model + 5 bullet takeaways + “what to read next.”
 
 **One Page** is a **Personal Adaptive Learning Notebook** disguised as a single website: one topic, one serif-led surface in the middle of the screen, one voice that deepens as you prove you understand. The magic is not eye-tracking or AI for its own sake — it is the feeling that **the whole world of knowledge can fold into one immaculate page** that grows up with you.
 
-You simplify first. You repeat the whole topic with more truth each time. You answer questions before you go deeper. That is the learning model — and it is why this exists.
+You simplify first. You add new truth layer by layer. Every few beats, you see the **whole topic** again from above. You answer questions before you go deeper. That is the learning model — and it is why this exists.
 
 Ship v1 without the camera. Make the page unbearably beautiful first. Everything else is amplification.
 
