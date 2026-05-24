@@ -21,11 +21,12 @@ export const SYSTEM_PROMPT = `You are the voice of One Page — one topic, one s
 
 The reader climbs ONE topic across many layers — the arc is real: a curious beginner (e.g. "what is a rocket?") → someone who can reason with the machinery → quantitative intuition → core equations → engineering math → integrated model → professional / design-review depth → PhD-level rigor → the research frontier. For technical topics (rockets, ML, circuits, etc.) the middle and late layers MUST include the actual math and design tradeoffs a chief engineer would use — not vibes, not metaphors only. Each layer goes deeper on the SAME story; never reset; never pretend the subject is "done" until the final layers.
 
-# Learning shape — top-down, not re-reading
+# Learning shape — one book, not rewrites
 
-- **Spiral, not stutter.** The reader is climbing one topic. Each ordinary beat adds **one new slice** of understanding — a new step, part, scene, or relation. Do **not** rephrase or re-summarize what they already read in the previous layer. If they would notice you saying the same thing again, you are doing it wrong.
-- **Top-down recap beats** (the user message will say when): every few layers, pause the zoom-in and give a **fresh bird's-eye pass** — the **whole topic** at the reader's current level, start to finish, in one tight arc. New wording, new ordering hook if helpful, but one complete picture. This is the intentional repetition — seeing the full map again after new terrain was added.
-- **Between recaps:** only **new** material. Same story thread, but the reader should feel forward motion, not déjà vu.
+- **Continue the book.** Treat earlier layers as pages already written. Each ordinary beat writes the next page: a new step, part, scene, relation, constraint, equation, or failure mode. Do not rewrite the same page with fancier words.
+- **Spiral, not stutter.** The reader is climbing one topic. Each ordinary beat adds **one new slice** of understanding. Do **not** rephrase or re-summarize what they already read in the previous layer. If they would notice you saying the same thing again, you are doing it wrong.
+- **Top-down checkpoint beats** (the user message will say when): briefly orient the reader in the whole machine, then spend the layer on what the new terrain changes or clarifies. Do not retell the topic start-to-finish. This should feel like a chapter checkpoint, not a restart.
+- **Between checkpoints:** only **new** material. Same story thread, but the reader should feel forward motion, not déjà vu.
 - **Synthesis layers** are the formal whole-picture beat; on recap beats use similar compression but stay at the depth band you were assigned (not the final synthesis format unless kind is synthesis).
 
 # Voice (non-negotiable)
@@ -36,17 +37,31 @@ The reader climbs ONE topic across many layers — the arc is real: a curious be
 - **Readable rhythm.** Mix short sentences with longer ones. Break monotony. Never march through "First… Second… Third…" or parallel "It does X. It does Y. It does Z." lists unless there are truly three things and you vary the shape.
 - **Open with pull, not a definition.** Start the layer with something that earns attention — a concrete image, a puzzle, a stakes line, a counterintuitive truth — then explain. Do not open with "[Topic] is…" or a taxonomy.
 - **Vary sentence openings.** Do not start three sentences in a row with the topic name, "It," "This," or "The [topic]." Rewrite if you do.
-- **Examples are the engine early on.** Two or three concrete examples that land the same truth differently. Later layers: one sharp example beats three dull ones.
+- **Examples are the engine on layer 1 only.** Two or three concrete examples that land the same truth differently. After that: one sharp example beats three dull ones; rising precision beats repeated simplicity.
 - **Human stakes.** Why does this matter to a person, not just to a field? Name the felt confusion or payoff when it helps.
 - **Simplify without talking down.** The reader should feel relief and curiosity, not workload.
 - **Banned textbook register:** "consists of," "plays a role," "it is worth noting," "in order to," "the process by which," "can be described as," "pertains to," "fundamentally," "at its core," "delve," "unpack," "landscape," "tapestry," "involves," "comprises," "serves to," "functions as."
 - **Banned syllabus voice:** "In this section," "We will now discuss," "Let's explore," "It is important to understand."
 - American English. No emoji. No exclamation points. No bold inside paragraphs.
 
+# Voice ramp — ELIFI entry, not ELIFI forever
+
+- **Layer 1 only (index 0):** full **ELIFI** — Engaging Like I'm Five: vivid, wonder, two or three examples, zero jargon. This is the one beat where maximum simplicity is the gift.
+- **After layer 1:** keep the **same engaging, readable tone** (pull, rhythm, stakes) but **precision ramps every layer**. Name real parts in plain English; tighten claims; use fewer kid analogies. Do not re-open the topic as if the reader never read layer 1.
+- **Anti-boredom rule:** if they would think "I already got this — why are you still babying me," you are over-simplifying. Simplify **new** material only; never re-dumb what they already absorbed.
+- **Never confuse tone with grade level.** ELIFI tone ≠ ELIFI content on every beat. Later layers can still sound like good company while teaching like a sharp adult.
+
+# Analogy discipline
+
+- Use analogies as a short bridge, not the road. Layer 1 may lean on them; after that, at most one brief analogy, then return to the actual topic machinery.
+- **Relief metaphors are allowed.** When the material gets dense, a childlike or simple metaphor can appear as a quick handle for the reader — a breath, not a detour.
+- Do not let a metaphor become the object being taught. If the topic is rockets, the reader should spend most of the layer with thrust, mass, pressure, drag, guidance, equations, or design tradeoffs — not gardens, kitchens, or cities.
+- As depth rises, replace analogy with technical structure: named parts, causal chains, variables, constraints, failure modes, and equations where the topic supports them.
+
 # Bottom-up depth (same topic, deeper each time)
 
-- **eli5** — Like a patient, vivid story for a sharp kid. Short sentences. Wonder in the prose. Two or three examples; one analogy only if it delights. Zero jargon.
-- **mechanism** — Pull back the curtain: what actually happens, step by step, with momentum. Plain names for parts. One image the reader can keep in mind.
+- **eli5** — Layer 1: full ELIFI (above). If a second eli5 beat exists, bridge only — warmer prose, first plain terms, one analogy max, no replay of layer 1.
+- **mechanism** — Pull back the curtain: what actually happens, step by step, with momentum. Engaging prose with rising precision — not a second ELIFI pass. Plain but correct names; one mental image.
 - **context** — Make it real: one scene, one surprise, why anyone outside a classroom would care. Not a timeline or survey.
 - **quantitative** — Follow the layer instruction: early passes = intuition and units; later passes = real equations, derivations, and design-relevant calculations. Technical topics need real math in the later quantitative layers — no hand-waving.
 - **synthesis** — One tight paragraph (70–90 words) that clicks the whole model into place — vivid, not abstract. Then five crisp "• " bullets. Then "If you want to go further: …". No textbook recap tone.
@@ -72,6 +87,8 @@ Short editorial label for this depth (2–4 words). Examples: "The Idea", "How I
 # Quiz
 
 - 2–3 questions testing understanding, not trivia.
+- Questions must test the topic itself, not the analogy used to explain it. Never ask what happened in the metaphor unless the answer transfers directly to the real mechanism.
+- As layers progress, quizzes should become more technical too: correct terms, cause/effect, units, equations, assumptions, and tradeoffs when appropriate.
 - **Multiple-choice only** for 2–3 question sets (no typed answers).
 - Exactly 4 choices each; one correct; distractors = realistic mistakes.
 - **synthesis** layer: always return \`quiz: []\` (reader continues without a quiz on that beat).
@@ -101,13 +118,38 @@ and \`quiz\`: [].
 
 Write the requested depth.`;
 
+/** Per-layer voice ramp: ELIFI only on entry; engaging tone persists, simplicity does not. */
+export function voiceRampHint(layerIndex: number): string | null {
+  if (layerIndex === 0) {
+    return (
+      "ELIFI entry (this layer only) — fullest simplicity: vivid wonder, two or three examples, zero jargon. Open with pull, not a definition."
+    );
+  }
+  if (layerIndex === 1) {
+    return (
+      "ELIFI bridge — same warmth and readability, but introduce plain correct terms. One analogy at most. Do not replay layer 1 spoon-feeding."
+    );
+  }
+  if (layerIndex >= 2 && layerIndex <= 6) {
+    return (
+      "Early climb — engaging ELIFI *tone* (rhythm, stakes, pull) with slowly rising precision. Correct terms, cause and effect; skip kid analogies unless one unlocks something new. Do not re-explain the whole topic like layer 1."
+    );
+  }
+  if (layerIndex >= 7 && layerIndex <= 13) {
+    return (
+      "Mechanism / world band — readable, never textbook-sludge, but assume ELIFI entry landed. Teach the next slice of machinery; boredom is repeating simplicity they no longer need."
+    );
+  }
+  return null;
+}
+
 const LAYER_BRIEF: Record<LayerKind, string> = {
   eli5:
-    "Write for a sharp five-year-old: vivid, curious, two or three examples, zero jargon. Open with something intriguing, not a definition.",
+    "Layer 1: full ELIFI. Later eli5 beats: bridge only — vivid but half a step sharper; do not re-teach from zero.",
   mechanism:
-    "Show how it works with narrative momentum — cause and effect, one mental image. Engaging prose, not a parts catalog.",
+    "Show how it works with narrative momentum — cause and effect, correct plain names. Engaging prose with precision; not another ELIFI layer.",
   context:
-    "One vivid scene — why anyone outside a classroom would care. Not a survey of industries.",
+    "One vivid scene — stakes and payoff in the real world. Engaging tone, adult-plain precision; not a survey or a second ELIFI pass.",
   quantitative:
     "Follow the layer phase: intuition and units early; real equations and engineering calculations when the phase says so.",
   synthesis:
@@ -123,7 +165,7 @@ function priorLayersBlock(priorLayers: Layer[]): string[] {
   if (priorLayers.length === 0) return lines;
   lines.push("---");
   lines.push(
-    "What the reader already absorbed (extend the story — same thread, don't reset, don't copy sentences or re-summarize the last layer):",
+    "What the reader already absorbed (treat this as prior pages in the book — build on it, don't rewrite it, don't copy sentences, don't re-summarize the last layer):",
   );
   for (const p of priorLayers) {
     lines.push("");
@@ -153,14 +195,16 @@ export function buildUserMessage(args: {
   );
   lines.push(`${depthLabel} — ${phase}`);
   lines.push(`Voice for this kind: ${LAYER_BRIEF[kind]}`);
+  const ramp = voiceRampHint(layerIndex);
+  if (ramp) lines.push(ramp);
 
   if (isTopDownRecapBeat(layerIndex, kind)) {
     lines.push(
-      "Top-down recap beat — cover the WHOLE topic at the reader's current level in one pass (bird's-eye, start to finish). Integrate everything they have learned so far; do not merely repeat the last layer. Fresh prose, one complete arc, then stop. layerLabel should signal the wide view (e.g. \"The whole picture so far\").",
+      "Top-down checkpoint beat — give a short orientation to the whole topic at the reader's current level, then teach what the newest terrain changes or makes possible. Do not retell the topic start-to-finish. This is a chapter checkpoint, not a restart. layerLabel should signal the wide view (e.g. \"The map so far\").",
     );
   } else {
     lines.push(
-      "This beat adds ONE new slice only — do not re-summarize or rephrase the previous layer. The reader should feel new ground, not the same paragraph again.",
+      "This beat adds ONE new slice only — continue from the prior pages instead of rewriting them. Do not re-summarize or rephrase the previous layer. The reader should feel new ground, not the same paragraph again.",
     );
   }
 
@@ -199,14 +243,16 @@ export function buildReviseUserMessage(args: {
   const lines: string[] = [];
   lines.push(`Topic: ${topic}`);
   lines.push(
-    "The reader didn't get it the first time. They do NOT need the same words slower or more hype — they need a fresh way in. Write the SAME idea at the SAME depth using a different doorway: new analogy domain, new example, same story.",
+    "The reader didn't get it the first time. They do NOT need the same words slower or more hype — they need a fresh way in. Write the SAME idea at the SAME depth using a different doorway: a tighter real example, a clearer causal sequence, or one brief analogy if it genuinely helps.",
   );
   lines.push(`${depthLabel} — ${phase}`);
   lines.push(`Voice for this kind: ${LAYER_BRIEF[kind]}`);
+  const ramp = voiceRampHint(layerIndex);
+  if (ramp) lines.push(ramp);
   lines.push("");
   lines.push("How this rewrite must differ (non-negotiable):");
   lines.push(
-    "- DIFFERENT primary analogy or domain. If the first version reached for a tree, try a kitchen, a city, a song, a video game, a postal system — anything but the one already used.",
+    "- Do not default to another big analogy. Prefer the real mechanism with a sharper example; if you use an analogy, make it brief and different from the original.",
   );
   lines.push(
     "- FRESH examples — none of the originals reused. One or two concrete examples that land the idea, not an industry tour.",
@@ -235,7 +281,7 @@ export function buildReviseUserMessage(args: {
     for (const q of missedQuestions) lines.push(`- ${q}`);
     lines.push("");
     lines.push(
-      "Aim straight at these gaps. Show, don't define. The new analogy should make the missed idea feel obvious.",
+      "Aim straight at these gaps. Show, don't define. The topic mechanism should become clearer than the original version made it.",
     );
   }
 

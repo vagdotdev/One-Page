@@ -226,6 +226,14 @@ export function OnePage() {
     markRead();
   }, [journey, markRead, onQuizPass]);
 
+  const handleGoDeeper = useCallback(() => {
+    if (readerPhase === "dissolve") return;
+    setReaderPhase("dissolve");
+    window.setTimeout(() => {
+      advance();
+    }, DISSOLVE_MS);
+  }, [advance, readerPhase]);
+
   const gazeEnabled = useGaze((s) => s.enabled);
   const gazeConsented = useGaze((s) => s.consented);
   const gazeActive = gazeIsActive({ enabled: gazeEnabled, consented: gazeConsented });
@@ -465,6 +473,7 @@ export function OnePage() {
     const canGoDeeper = canAdvanceFrom(journey.currentIndex);
     const hasQuiz = layer.quiz.length > 0;
     const continueWithoutQuiz = !hasQuiz;
+    const transitioning = readerPhase === "dissolve";
 
     return (
       <>
@@ -485,7 +494,7 @@ export function OnePage() {
           </div>
 
           <div className="viewport-footer">
-            {status === "reading" && hasQuiz && !revising && (
+            {status === "reading" && hasQuiz && !revising && !transitioning && (
               <GazeContinueButton
                 onContinue={handleContinue}
                 gazeActive={gazeActive}
@@ -495,16 +504,16 @@ export function OnePage() {
               />
             )}
 
-            {status === "passed" && canGoDeeper && (
+            {status === "passed" && canGoDeeper && !transitioning && (
               <button
-                onClick={() => advance()}
+                onClick={handleGoDeeper}
                 className="ui text-sm text-ink-mute hover:text-ink-soft transition-colors border border-rule rounded px-5 py-2 hover:border-ink-faint"
               >
                 Go deeper
               </button>
             )}
 
-            {status === "passed" && !canGoDeeper && (
+            {status === "passed" && !canGoDeeper && !transitioning && (
               <button
                 onClick={handleReset}
                 className="ui text-sm text-ink-mute hover:text-ink-soft transition-colors border border-rule rounded px-5 py-2 hover:border-ink-faint"
@@ -513,7 +522,10 @@ export function OnePage() {
               </button>
             )}
 
-            {status === "reading" && continueWithoutQuiz && !revising && (
+            {status === "reading" &&
+              continueWithoutQuiz &&
+              !revising &&
+              !transitioning && (
               <GazeContinueButton
                 onContinue={handleContinue}
                 gazeActive={gazeActive}

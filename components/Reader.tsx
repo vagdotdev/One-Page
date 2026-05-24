@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef } from "react";
-import { motion } from "motion/react";
+import { useEffect, useRef } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import type { Layer } from "@/lib/types";
 
 export type ReaderPhase = "enter" | "dissolve" | "hold";
@@ -31,9 +31,8 @@ export function Reader({
   onExit,
   onReady,
 }: ReaderProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLElement>(null);
   const onReadyRef = useRef(onReady);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     onReadyRef.current = onReady;
@@ -45,32 +44,6 @@ export function Reader({
     return () => clearTimeout(timer);
   }, [layer.index, animationKey, phase]);
 
-  useLayoutEffect(() => {
-    const fit = () => {
-      const container = containerRef.current;
-      const content = contentRef.current;
-      if (!container || !content) return;
-
-      content.style.transform = "none";
-      const scale = Math.min(
-        1,
-        container.clientHeight / content.scrollHeight,
-        container.clientWidth / content.scrollWidth,
-      );
-      content.style.transform = `scale(${scale})`;
-      content.style.transformOrigin = "top center";
-    };
-
-    fit();
-    const ro = new ResizeObserver(fit);
-    if (containerRef.current) ro.observe(containerRef.current);
-    window.addEventListener("resize", fit);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener("resize", fit);
-    };
-  }, [layer, phase, animationKey]);
-
   const isSynthesis = layer.index === 4;
   const entering = phase === "enter";
   const dissolving = phase === "dissolve";
@@ -78,9 +51,8 @@ export function Reader({
   let bodyIndex = 0;
 
   return (
-    <div ref={containerRef} className="reader-fit w-full self-stretch">
+    <div className="reader-fit w-full self-stretch">
       <article
-        ref={contentRef}
         className="prose-body prose-body--viewport"
         key={`${layer.index}-${animationKey}`}
         data-selectable="true"
@@ -106,14 +78,26 @@ export function Reader({
             const delayIndex = bodyIndex++;
             const motionProps = {
               initial: entering
-                ? { opacity: 0, y: 10, filter: "blur(6px)" }
+                ? {
+                    opacity: 0,
+                    y: shouldReduceMotion ? 0 : 10,
+                    filter: shouldReduceMotion ? "blur(0px)" : "blur(6px)",
+                  }
                 : false,
               animate: dissolving
-                ? { opacity: 0, y: -18, filter: "blur(16px)" }
+                ? {
+                    opacity: 0,
+                    y: shouldReduceMotion ? 0 : -18,
+                    filter: shouldReduceMotion ? "blur(0px)" : "blur(16px)",
+                  }
                 : { opacity: 1, y: 0, filter: "blur(0px)" },
               transition: {
-                duration: dissolving ? 0.55 : 0.65,
-                delay: entering ? delayIndex * 0.045 : delayIndex * 0.035,
+                duration: shouldReduceMotion ? 0.12 : dissolving ? 0.55 : 0.65,
+                delay: shouldReduceMotion
+                  ? 0
+                  : entering
+                    ? delayIndex * 0.045
+                    : delayIndex * 0.035,
                 ease: dissolving ? ("easeIn" as const) : ("easeOut" as const),
               },
             };
